@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import I18n from 'i18n-js';
 import React from 'react';
 import { StyleSheet, Text, View, Alert } from 'react-native';
 import Button from './components/Button' ;
@@ -8,7 +9,7 @@ const App = () => {
     <View style={styles.container}>
       <Text>Hello Charlie</Text>
         <StatusBar style="auto" />
-      <Button onPress={() => Alert.alert("Ceci est un bouton")} text="Ceci est un Texte"/>
+      <Button onPress={() => Alert.alert("Ceci est un bouton")} text="phone.call"/>
     </View>
   );
 }
