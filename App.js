@@ -1,15 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import I18n from 'i18n-js';
 import React from 'react';
-import { StyleSheet, Text, View, Alert } from 'react-native';
+import { StyleSheet, View, Linking, Platform } from 'react-native';
 import Button from './components/Button' ;
 
 const App = () => {
+  let phoneNumber = '';
+
+  if (Platform.OS === 'android') {
+    phoneNumber = "tel:${0638666801}";
+  } else {
+    phoneNumber = "telprompt:${0638666801}";
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Hello Charlie</Text>
-        <StatusBar style="auto" />
-      <Button onPress={() => Alert.alert("Ceci est un bouton")} text="phone.call"/>
+      <StatusBar style="auto" />
+      <Button onPress={() => Linking.openURL(phoneNumber)} text="phone.call"/>
     </View>
   );
 }
@@ -20,7 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });
 
 export default App ;
