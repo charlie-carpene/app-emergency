@@ -5,11 +5,12 @@ import Button from './components/Button' ;
 
 const App = () => {
   let phoneNumber = '';
+  let number = "0638666801";
 
   if (Platform.OS === 'android') {
-    phoneNumber = "tel:${0638666801}";
+    phoneNumber = `tel:${number}`;
   } else {
-    phoneNumber = "telprompt:${0638666801}";
+    phoneNumber = `telprompt:${number}`;
   };
 
   return (
