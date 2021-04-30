@@ -1,22 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, View, Linking, Platform } from 'react-native';
-import Button from './components/Button' ;
+import { setStatusBarNetworkActivityIndicatorVisible, StatusBar } from 'expo-status-bar';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
+import Button from './components/Button';
+import numberHandler from './tools/numberHandler';
+import fetchCountry from './tools/fetchCountry';
 
 const App = () => {
-  let phoneNumber = '';
-  let number = "0638666801";
-
-  if (Platform.OS === 'android') {
-    phoneNumber = `tel:${number}`;
-  } else {
-    phoneNumber = `telprompt:${number}`;
-  };
-
+ 
+  const [number, setNumber] = useState(fetchCountry());
+  
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Button onPress={() => Linking.openURL(phoneNumber)} text="phone.call"/>
+      <Button onPress={() => numberHandler(number) } text="phone.call"/>
     </View>
   );
 }
