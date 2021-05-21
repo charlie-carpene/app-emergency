@@ -4,9 +4,10 @@ import { StyleSheet, View } from 'react-native';
 import Button from './components/Button';
 import numberHandler from './tools/numberHandler';
 import fetchCountry from './tools/fetchCountry';
+import updateDatabase from './tools/updateDatabase';
 
 const App = () => {
- 
+  updateDatabase();
   const [number, setNumber] = useState(fetchCountry());
   
   return (
