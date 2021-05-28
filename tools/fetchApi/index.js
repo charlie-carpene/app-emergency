@@ -11,10 +11,10 @@ const fetchApi = () => {
     fetch("https://emergencynumberapi.com/api/data/all", requestOptions)
     .then((response) => response.json())
     .then((json) => {
-        console.log(json);
+        return json;
     })
     .catch((error) => {
-        console.error(error);
+        return error;
     });
 };
 

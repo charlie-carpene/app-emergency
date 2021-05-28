@@ -1,14 +1,11 @@
-import NetInfo from '@react-native-community/netinfo';
+import isConnected from '../isConnected';
 import fetchApi from '../fetchApi';
+import {Alert} from 'react-native';
+
 
 const updateDatabase = () => {
-    NetInfo.fetch().then(state => {
-        if (state.isConnected) {
-            fetchApi();
-        } else {
-            console.log("Not connected");
-        };
-    });
+    Alert.alert (isConnected());
+    console.log(isConnected());
 };
 
 export default updateDatabase;
